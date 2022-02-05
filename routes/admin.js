@@ -6,7 +6,7 @@ const rootDir = require("../util/path");
 const router = express.Router();
 
 router.get("/admin", (req, res, next) => {
-  res.sendFile(path.join(rootDir, "view", "admin.html"));
+  res.render('admin');
 });
 
 module.exports = router;
