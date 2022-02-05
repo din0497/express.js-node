@@ -11,8 +11,9 @@ app.set("views", "views");
 const admin = require("./routes/admin");
 const user = require("./routes/user");
 
+app.use(bodyParser.urlencoded({extended:false}))
 app.use(express.static(path.join(__dirname, "public")));
-app.use(admin);
+app.use(admin.routes);
 app.use(user);
 
 app.listen(3000);

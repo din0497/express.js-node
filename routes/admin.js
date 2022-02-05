@@ -5,8 +5,20 @@ const rootDir = require("../util/path");
 
 const router = express.Router();
 
+const users = [];
+
 router.get("/admin", (req, res, next) => {
-  res.render('admin');
+  res.render("admin", {
+    pageTitle:'Admin'
+  });
 });
 
-module.exports = router;
+router.post("/admin", (req, res, next) => {
+  users.push({userName: req.body.userName});
+  res.redirect('/')
+  console.log(users);
+
+});
+
+exports.routes = router;
+exports.users = users;
